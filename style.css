@@ -1,0 +1,75 @@
+*{
+  text-align: center;
+
+}
+body{
+     cursor: url(cursor.cur), pointer; 
+    background-color:rgb(245, 172, 35);
+    z-index: -5;
+}
+
+  .container{
+  display:flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  margin-left: 500px;
+  margin: 0 auto;
+  }
+
+  .mole {
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin: 10px;
+    background-image: url(images/digglet2.jpg);
+   border-style: solid;
+   border-color: black;
+   }
+
+   .mole.show {
+    background-color: red;
+    background-size: 100px 100px;
+  }
+
+.game-over {
+  position: fixed;
+  left: 300px;
+  top: 250px; 
+  display: none;
+  background-image: url(images/gameover.jpg);
+  width: 78%;
+  height: 100%;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.start {
+  position: fixed;
+  left: 75px;
+  background-image: url(images/start.jpg);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+
+}
+
+#ball{
+  position:fixed;
+  width: 50px;
+  height: 50px;
+  float:left;
+  margin-left: -120px;
+  margin-top: -5px;
+  display: none;
+}
+
+.button{
+  position: fixed;
+  left: 650px;
+  top: 700px; 
+  display: none;  
+  width: 100px;
+  height: 50px;
+  background-color: rgb(90, 141, 218);
+}
