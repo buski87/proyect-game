@@ -1,6 +1,6 @@
 function Game(options) {
     this.score = 0;
-    this.time = 30;
+    this.time = 3;
     this.moles;
     this.numMoles = 9;
     this.board = options.board;
@@ -58,13 +58,11 @@ Game.prototype.pause = function(){
     if(this.gameControl){
         clearInterval(this.intervalGame);
         clearInterval(this.intervalTimer);
-        _gameover();
-        this.gameControl = !this.gameControl;
     } else if (!this.gameControl){
         this._playMoles();
         this._timer();
-        this.gameControl = !this.gameControl;
     }
+    this.gameControl = !this.gameControl;
 }
 
 Game.prototype._timer = function(){
@@ -73,6 +71,7 @@ Game.prototype._timer = function(){
         if (this.time < 0) {
             clearInterval(this.intervalGame);
             clearInterval(this.intervalTimer);
+            this._gameOver();
         } else {
             $('#timer').html(this.time);
             this.time--;
@@ -81,6 +80,11 @@ Game.prototype._timer = function(){
 } 
  
 Game.prototype._gameOver = function(){
- 
-
+    $( ".game-over").toggle();
+    $( ".button").toggle();     
 }
+
+ // try again button
+ function refreshPage(){
+    window.location.reload();
+  }

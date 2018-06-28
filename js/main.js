@@ -1,26 +1,26 @@
-$(document).ready(function(){
+$(document).ready(function () {
     var game;
     var board = $('.container');
- 
+
     game = new Game({
         board: board,
     });
-    $( ".start" ).click(function() {
-        $( ".start" ).toggle();
+    $(".start").click(function () {
+        $(".start").toggle();
         $('#ball').toggle();
         game.start();
-      });
-    
+    });
 
-    $('#pause').on('click', function(){
-        if(game.gameControl){
+
+    $('#pause').on('click', function () {
+        if (game.gameControl) {
             $(this).html('Ready')
-        } else if (!game.gameControl){
-            $(this).html('Pause')  
+        } else if (!game.gameControl) {
+            $(this).html('Pause')
         }
         game.pause();
     })
 
 });
 
- 
+
