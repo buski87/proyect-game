@@ -1,12 +1,14 @@
 function Game(options) {
     this.score = 0;
-    this.time = 3;
+    this.time = 30;
     this.moles;
     this.numMoles = 9;
     this.board = options.board;
     this.gameControl = true;
     this.intervalGame = undefined;
     this.intervalTimer = undefined;
+    this.musica = new Audio();
+    this.musica.src = "./music.mp3"
 }
 
 Game.prototype.start = function(){
@@ -14,6 +16,7 @@ Game.prototype.start = function(){
     this._playMoles();
     this._hitMoles();
     this._timer();
+    this.musica.play();
 }
 
 Game.prototype._status = function(){
@@ -58,9 +61,11 @@ Game.prototype.pause = function(){
     if(this.gameControl){
         clearInterval(this.intervalGame);
         clearInterval(this.intervalTimer);
+        this.musica.pause();
     } else if (!this.gameControl){
         this._playMoles();
         this._timer();
+        this.musica.play();
     }
     this.gameControl = !this.gameControl;
 }
@@ -82,6 +87,7 @@ Game.prototype._timer = function(){
 Game.prototype._gameOver = function(){
     $( ".game-over").toggle();
     $( ".button").toggle();     
+    this.musica.pause();
 }
 
  // try again button
